@@ -37,14 +37,20 @@ public class WordsTests
 	{
 		assertEquals(20,EasyWords.GRAB.getID());
 	}
+<<<<<<< Updated upstream
 	
+=======
+>>>>>>> Stashed changes
 	@Test
 	public void EnumeratedMediumWordsMatchID()
 	{
 		assertEquals(20,MediumWords.FOLK.getID());
 
 	}
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 	@Test
 	public void EnumeratedHardWordsMatchID()
 	{

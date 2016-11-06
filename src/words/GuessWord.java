@@ -1,10 +1,10 @@
 package words;
 
-public class GuessWord  {
+public class GuessWord  
+{
 
 	private char[] wordArray;
 	private GenerateWord word;
-	
 	
 	public GuessWord(String level)
 	{
@@ -23,7 +23,7 @@ public class GuessWord  {
 		boolean correct=false;
 		for(int i=0;i<wordArray.length;i++)
 		{
-			if(word.getWord().charAt(i)==(letter))
+			if(word.getWord().charAt(i)==letter)
 			{
 				wordArray[i]=word.getWord().charAt(i);
 				
@@ -35,13 +35,19 @@ public class GuessWord  {
 	
 	public boolean guessTheWord(String otherWord)
 	{
-		return word.getWord().equals(otherWord);
+		return word.getWord().equalsIgnoreCase(otherWord);
 	}
 	
 	public String getWord()
 	{
 		return word.getWord();
 	}
+	
+	public char[] getWordArray()
+	{
+		return wordArray;
+	}
+	
 	@Override
 	public String toString()
 	{

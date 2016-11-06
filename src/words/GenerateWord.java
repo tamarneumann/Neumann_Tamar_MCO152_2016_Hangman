@@ -1,6 +1,7 @@
 package words;
 
 import java.util.Random;
+import exceptions.*;
 
 public class GenerateWord 
 {
@@ -39,7 +40,7 @@ public class GenerateWord
 		        }
 		    }
 		}
-		else
+		else if(level.equalsIgnoreCase("hard"))
 		{
 			id = num.nextInt((HardWords.values().length)) + 1;
 			for(HardWords w : HardWords.values())
@@ -51,6 +52,8 @@ public class GenerateWord
 		        }
 		    }
 		}
+		else
+			throw new InvalidDifficultyLevelException();
 		
 		this.numLetters = word.length();
 	}

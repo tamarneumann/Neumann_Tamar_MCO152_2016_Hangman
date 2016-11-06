@@ -6,8 +6,9 @@ import exceptions.*;
 import words.*;
 
 
-public class WordsTests {
-
+public class WordsTests 
+{
+	
 	private GenerateWord word;
 	
 	@Test
@@ -17,12 +18,14 @@ public class WordsTests {
 		assertNotNull(word);
 	}
 	
+	@Test
 	public void HangmanMediumWordsNotNull()
 	{
 		word=new GenerateWord("medium");
 		assertNotNull(word);
 	}
 	
+	@Test
 	public void HangmanHardWordsNotNull()
 	{
 		word=new GenerateWord("hard");
@@ -34,13 +37,15 @@ public class WordsTests {
 	{
 		assertEquals(20,EasyWords.GRAB.getID());
 	}
-
+	
+	@Test
 	public void EnumeratedMediumWordsMatchID()
 	{
 		assertEquals(20,MediumWords.FOLK.getID());
 
 	}
 
+	@Test
 	public void EnumeratedHardWordsMatchID()
 	{
 		assertEquals(20,HardWords.ESSENTIAL.getID());	
@@ -51,7 +56,6 @@ public class WordsTests {
 	{
 		word=new GenerateWord("incorrectText");
 	}
-	
 }
 	
 

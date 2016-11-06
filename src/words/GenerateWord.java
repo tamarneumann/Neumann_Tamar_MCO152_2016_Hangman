@@ -18,10 +18,11 @@ public class GenerateWord
 		//then search the enumerated type for the word corresponding to that number
 		if(level.equalsIgnoreCase("easy"))
 		{
-			id = num.nextInt((EasyWords.values().length)) + 1;
-			for(EasyWords w : EasyWords.values())
+			id = num.nextInt((EasyWords.values().length)) + 1;	//generate a random number from 1 through the number of words of that level
+			for(EasyWords w : EasyWords.values())				//go through the words of that level and if you find the id of the word that 
+																//matches the random number set that word to be the word for the game
 			{
-		        if( w.getID() == id)
+		        if(w.getID() == id)
 		        {
 		            this.word = w.toString();
 		            break;

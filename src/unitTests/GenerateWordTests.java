@@ -30,24 +30,6 @@ public class GenerateWordTests
 		assertNotNull(word);
 	}
 	
-	@Test
-	public void EnumeratedEasyWordsMatchID()
-	{
-		assertEquals(20,EasyWords.GRAB.getID());
-	}
-
-	@Test
-	public void EnumeratedMediumWordsMatchID()
-	{
-		assertEquals(20,MediumWords.FOLK.getID());
-
-	}
-
-	@Test
-	public void EnumeratedHardWordsMatchID()
-	{
-		assertEquals(20,HardWords.ESSENTIAL.getID());	
-	}
 	
 	@Test (expected=InvalidDifficultyLevelException.class)
 	public void InvalidDifficultyInputThrowsException()

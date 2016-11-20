@@ -18,37 +18,39 @@ public class GenerateWord
 		//then search the enumerated type for the word corresponding to that number
 		if(level.equalsIgnoreCase("easy"))
 		{
-			id = num.nextInt((EasyWords.values().length)) + 1;	//generate a random number from 1 through the number of words of that level
-			for(EasyWords w : EasyWords.values())				//go through the words of that level and if you find the id of the word that 
-																//matches the random number set that word to be the word for the game
+			EasyWords w[] = EasyWords.values();		//generate a random number from 1 through the number of words of that level
+			id = num.nextInt((w.length)) + 1;		//go through the words of that level and if you find the id of the word that 
+			for(int i = 0; i < w.length; i++)		//matches the random number set that word to be the word for the game
 			{
-		        if(w.getID() == id)
-		        {
-		            this.word = w.toString();
-		            break;
-		        }
-		    }
+				if(i == id)
+				{
+					this.word = w[i].toString();
+					break;
+				}
+			}
 		}
 		else if(level.equalsIgnoreCase("medium"))
 		{
-			id = num.nextInt((MediumWords.values().length)) + 1;
-			for(MediumWords w : MediumWords.values())
+			MediumWords w[] = MediumWords.values();
+			id = num.nextInt((w.length)) + 1;
+			for(int i = 0; i < w.length; i++)
 			{
-		        if( w.getID() == id)
+		        if(i == id)
 		        {
-		            this.word = w.toString();
+		            this.word = w[i].toString();
 		            break;
 		        }
 		    }
 		}
-		else if(level.equalsIgnoreCase("hard"))
+		else if (level.equalsIgnoreCase("hard"))
 		{
-			id = num.nextInt((HardWords.values().length)) + 1;
-			for(HardWords w : HardWords.values())
+			HardWords w[] = HardWords.values();
+			id = num.nextInt((w.length)) + 1;
+			for(int i = 0; i < w.length; i++)
 			{
-		        if( w.getID() == id)
+		        if(i == id)
 		        {
-		            this.word = w.toString();
+		            this.word = w[i].toString();
 		            break;
 		        }
 		    }

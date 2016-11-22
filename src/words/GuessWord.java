@@ -5,6 +5,7 @@ public class GuessWord
 
 	private char[] wordArray;
 	private GenerateWord word;
+	private int guessedLetters;
 	
 	public GuessWord(String level)
 	{
@@ -26,6 +27,7 @@ public class GuessWord
 			if(word.getWord().charAt(i)==letter)
 			{
 				wordArray[i]=word.getWord().charAt(i);
+				guessedLetters++;
 				
 				correct=true;
 			}
@@ -46,6 +48,11 @@ public class GuessWord
 	public char[] getWordArray()
 	{
 		return wordArray;
+	}
+	
+	public boolean notGuessed()
+	{
+		return !(guessedLetters==wordArray.length);
 	}
 	
 	@Override

@@ -49,9 +49,9 @@ public class GuessWord
 		return wordArray;
 	}
 	
-	public boolean notGuessed()
+	public boolean guessed()
 	{
-		return !(guessedLetters==wordArray.length);
+		return guessedLetters==wordArray.length;
 	}
 	
 	@Override

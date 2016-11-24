@@ -1,3 +1,4 @@
+package HangmanGame;
 import words.*;
 import java.util.Scanner;
 import exceptions.*;
@@ -34,7 +35,7 @@ public class HangmanMain
 			if(!guess)
 				  System.out.println("The letter you guessed is incorrect.");
 			 
-		}while(word.notGuessed());
+		}while(word.guessed());
 		
 		System.out.println(word);
 		System.out.println("Congratulations you guess the word "+word.getWord()+"!");

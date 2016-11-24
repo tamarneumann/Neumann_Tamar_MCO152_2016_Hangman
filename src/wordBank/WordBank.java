@@ -1,6 +1,5 @@
 package wordBank;
 
-//import words.*;
 import java.util.ArrayList;
 
 public class WordBank 
@@ -15,7 +14,7 @@ public class WordBank
 		lettersLeft = new ArrayList<Character>();
 		lettersGuessed = new ArrayList<Character>();
 		
-		//fill the array list of remaining letters
+		//fill the array list of all letters
 		for(char alphabet = 'A'; alphabet <= 'Z';alphabet++) 
 		{
 		    lettersLeft.add(alphabet);
@@ -25,26 +24,7 @@ public class WordBank
 	public void removeGuessedLetter(Character guess)
 	{
 		lettersLeft.remove(guess);
-		addGuessedLetter(guess);
-	}
-	
-	private void addGuessedLetter(char guess)
-	{
-		//add in letter so it remains alphabetical
-		if(lettersGuessed.size() == 0)
-			lettersGuessed.add(guess);
-		else
-		{
-			boolean insert = false;
-			for(int i = 0; i < lettersGuessed.size() && !insert; i++)
-			{
-				if(lettersGuessed.get(i).compareTo(guess) > 0 && lettersGuessed.get(i-1).compareTo(guess) < 0)
-				{
-					lettersGuessed.add(i, guess);
-					insert = true;
-				}
-			}
-		}
+		lettersGuessed.add(guess);
 	}
 	
 	public String printLettersRemaining()
@@ -89,7 +69,7 @@ public class WordBank
 			bank.append(String.format("%n|%20s", ""));
 		else
 		{
-			for(int i = 0; i < lettersLeft.size(); i++)
+			for(int i = 0; i < lettersGuessed.size(); i++)
 			{
 				if(i == 0)
 					bank.append("\n|");

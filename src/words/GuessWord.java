@@ -2,7 +2,6 @@ package words;
 
 public class GuessWord  
 {
-
 	private char[] wordArray;
 	private GenerateWord word;
 	private int guessedLetters;

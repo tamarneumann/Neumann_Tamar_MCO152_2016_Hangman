@@ -29,12 +29,7 @@ public class GuessWordTests
 		assertNotNull(gword);
 	}
 	
-	@Test
-	public void ArrayOfCharAndWordLengthSameAmountOfCharacters()
-	{
-		gword = new GuessWord("easy");
-		assertEquals(gword.getWord().length(), gword.getWordArray().length);
-	}
+	
 	
 	@Test
 	public void GuessLetterFindsMatchingLetterToUsersInput()

@@ -8,40 +8,42 @@ public class HangmanMain
 {
 	public static void main(String[] args)
 	{
-		boolean guess;
-		GuessWord word = null;
-		WordBank bank = new WordBank();
-		
 		Scanner input = new Scanner(System.in);
-		System.out.print("Please enter the level you would like to play: easy, medium or hard: ");
-		String level = input.nextLine();
+		Hangman hangman = null;
 		
-		try
-		{
-			word = new GuessWord(level);
-		}
-		catch(InvalidDifficultyLevelException e)
-		{
-			System.out.println(e);
-		}
+		boolean flag = false;
 		do
 		{
+			System.out.print("Please enter the level you would like to play: easy, medium or hard: ");
+			try
+			{
+				hangman = new Hangman(input.nextLine());
+				flag = true;
+			}
+			catch(InvalidDifficultyLevelException e)
+			{
+				System.out.println(e);
+			}
+		} while(!flag);
 		
-		    System.out.println(bank.toString());
-			System.out.println("\n"+word);
+		boolean guess;
+		
+		do
+		{
+			System.out.println("\n"+hangman);
 			
-			guess=guessLetter(input, word, bank);
+			guess=guessLetter(input, hangman);
 			
 			if(!guess)
 				  System.out.println("The letter you guessed is incorrect.");
 			 
-		}while(word.guessed());
+		}while(!hangman.guessed());
 		
-		System.out.println(word);
-		System.out.println("Congratulations you guess the word "+word.getWord()+"!");
+	
+		System.out.println("Congratulations you guess the word "+hangman.displayWord()+"!");
 	}
 	
-	public static boolean guessLetter(Scanner input, GuessWord word, WordBank bank)
+	public static boolean guessLetter(Scanner input, Hangman hangman)
 	{
 		char letter;
 		boolean guess;
@@ -49,8 +51,7 @@ public class HangmanMain
 		System.out.println("Guess a letter");
 		letter=input.nextLine().toUpperCase().charAt(0);	
 		
-		guess=word.guessLetter(letter);
-		bank.removeGuessedLetter(letter);
+		guess=hangman.guessLetter(letter);
 		
 		return guess;
 	}

@@ -8,10 +8,12 @@ public class Hangman
 {
 	private GuessWord guessWord;
 	private WordBank wordBank;
+	private int incorrectLetter; //keep count of incorrect guesses.
 	//private HangmanGuy hangmanGuy;
 	
 	public Hangman(String level) throws InvalidDifficultyLevelException
 	{
+		incorrectLetter=0;
 		guessWord = new GuessWord(level);
 		wordBank = new WordBank();
 	}
@@ -19,7 +21,13 @@ public class Hangman
 	public boolean guessLetter(char letter)
 	{
 		wordBank.removeGuessedLetter(letter);
-		return guessWord.guessLetter(letter);
+		boolean guessed= guessWord.guessLetter(letter);
+		
+		//if the letter guessed was incorrect, increment the variable.
+		 if(!guessed)
+			 incorrectLetter++;
+		 
+		 return guessed;
 	}
 	
 	public boolean guessWord(String word)
@@ -35,5 +43,15 @@ public class Hangman
 	public String displayWord()
 	{
 		return guessWord.toString();
+	}
+	
+	public String toString()
+	{
+		StringBuilder sb=new StringBuilder();
+		sb.append(wordBank.printLettersRemaining()+"\n"
+				+ wordBank.printLettersGuessed()+"\n"
+				+ "\nYour Word is:\n\n "+guessWord);
+		
+		return sb.toString();
 	}
 }

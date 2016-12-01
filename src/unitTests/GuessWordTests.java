@@ -30,7 +30,6 @@ public class GuessWordTests
 	}
 	
 	
-	
 	@Test
 	public void GuessLetterFindsMatchingLetterToUsersInput()
 	{
@@ -40,4 +39,6 @@ public class GuessWordTests
 		else
 			assertFalse(gword.guessLetter('a'));
 	}
+	
+	
 }

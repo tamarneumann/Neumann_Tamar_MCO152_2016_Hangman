@@ -45,12 +45,22 @@ public class Hangman
 		return guessWord.toString();
 	}
 	
+	public int getIncorrectGuess()
+	{
+		return incorrectLetter;
+	}
+	
+	public String getWord()
+	{
+		return guessWord.getWord();
+	}
+	
 	public String toString()
 	{
 		StringBuilder sb=new StringBuilder();
 		sb.append(wordBank.printLettersRemaining()+"\n"
 				+ wordBank.printLettersGuessed()+"\n"
-				+ "\nYour Word is:\n\n "+guessWord);
+				+ "\nYour Word is:  " + guessWord);
 		
 		return sb.toString();
 	}

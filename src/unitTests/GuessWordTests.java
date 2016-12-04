@@ -41,4 +41,11 @@ public class GuessWordTests
 	}
 	
 	
+	@Test
+	public void IncorrectGuessTheWordIsFalse()
+	{
+		gword=new GuessWord("easy");
+		assertFalse("wrong word".equals(gword));
+	}
+	
 }

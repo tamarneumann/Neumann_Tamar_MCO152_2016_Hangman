@@ -40,7 +40,7 @@ public class HangmanMain
 			do
 			{
 				System.out.print("\n" + hangman + "\n\nGuess a letter: ");
-				guess=guessLetter(hangman);
+				guess = hangman.guessLetter(input.nextLine().toUpperCase().charAt(0));
 				
 				if(!guess)
 					  System.out.println("The letter you guessed is incorrect.");
@@ -58,11 +58,6 @@ public class HangmanMain
 		}while(playAgain == 1);
 		
 		System.out.println("Thank you for playing!");
-	}
-	
-	public static boolean guessLetter(Hangman hangman)
-	{
-		return hangman.guessLetter(input.nextLine().toUpperCase().charAt(0));
 	}
 	
 	public static String gameRules()

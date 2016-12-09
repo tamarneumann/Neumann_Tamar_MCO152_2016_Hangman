@@ -1,0 +1,9 @@
+I like the way this is coming along. A few things I would like to see addressed:
+
+I got a run time error on bad input, I think when I guessed a letter instead of choosing an option or something like that. You should validate all input and not have any runtime errors.
+When the user guesses a letter they've already guessed I would prefer they not lose a guess.
+I know this is a relatively short-term project but I would still like to see a little more testing.
+
+One thing I'd like you to think about, but you don't have to do anything based on this, if you were going to convert your game to a GUI how easy would that be? Is there a strong separation between the logic and UI such that you could design a new UI and still use all of the methods as is?
+
+Keep up the good work.

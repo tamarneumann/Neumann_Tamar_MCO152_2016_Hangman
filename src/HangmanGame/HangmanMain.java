@@ -5,11 +5,10 @@ import exceptions.*;
 import wordBank.*;
 
 public class HangmanMain 
-{
-	public static Scanner input = new Scanner(System.in);	//create the scanner as a field so you don't need to pass
-	
+{	
 	public static void main(String[] args)
 	{
+		Scanner input = new Scanner(System.in);
 		final int MAX_TURNS = 10;
 		int playAgain;
 		
@@ -17,7 +16,7 @@ public class HangmanMain
 		{
 			Hangman hangman = null;
 			
-			System.out.println(gameRules());
+			System.out.println(Hangman.gameRules());
 			
 			boolean flag = false;
 			do
@@ -35,16 +34,20 @@ public class HangmanMain
 				}
 			} while(!flag);
 			
-			boolean guess;
+			boolean guess = false;
 			
 			do
 			{
 				System.out.print("\n" + hangman + "\n\nGuess a letter: ");
-				guess = hangman.guessLetter(input.nextLine().toUpperCase().charAt(0));
-				
-				if(!guess)
-					  System.out.println("The letter you guessed is incorrect.");
-				 
+				try {
+					guess = hangman.guessLetter(input.nextLine().toUpperCase().charAt(0));
+					if(!guess)
+						  System.out.println("The letter you guessed is incorrect.");
+				}
+				catch(LetterAlreadyGuessException e)
+				{
+					System.out.println("Letter already guessed");
+				}
 			}while(!hangman.guessed() && hangman.getIncorrectGuess() < MAX_TURNS);
 			
 			if(hangman.guessed())
@@ -59,12 +62,5 @@ public class HangmanMain
 		
 		System.out.println("Thank you for playing!");
 	}
-	
-	public static String gameRules()
-	{
-		StringBuilder rules = new StringBuilder();
-		rules.append("Game Rules:\n");
-		//write up the game rules
-		return rules.toString();
-	}
+
 }

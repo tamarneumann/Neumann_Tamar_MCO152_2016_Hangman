@@ -1,6 +1,7 @@
 package wordBank;
 
 import java.util.ArrayList;
+import exceptions.*;
 
 public class WordBank 
 {
@@ -23,6 +24,13 @@ public class WordBank
 	
 	public void removeGuessedLetter(Character guess)
 	{
+		for(int i = 0; i < lettersGuessed.size(); i++)
+		{
+			if(lettersGuessed.get(i) == guess)
+			{
+				throw new LetterAlreadyGuessException();
+			}
+		}
 		lettersLeft.remove(guess);
 		lettersGuessed.add(guess);
 	}

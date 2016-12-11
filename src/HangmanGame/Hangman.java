@@ -2,6 +2,7 @@ package HangmanGame;
 
 import words.*;
 import exceptions.InvalidDifficultyLevelException;
+import exceptions.LetterAlreadyGuessException;
 import wordBank.*;
 
 public class Hangman 
@@ -18,16 +19,15 @@ public class Hangman
 		wordBank = new WordBank();
 	}
 	
-	public boolean guessLetter(char letter)
+	public boolean guessLetter(char letter) throws LetterAlreadyGuessException
 	{
 		wordBank.removeGuessedLetter(letter);
 		boolean guessed= guessWord.guessLetter(letter);
 		
 		//if the letter guessed was incorrect, increment the variable.
 		 if(!guessed)
-			 incorrectLetter++;
-		 
-		 return guessed;
+			 incorrectLetter++; 
+		return guessed;
 	}
 	
 	public boolean guessWord(String word)
@@ -53,6 +53,22 @@ public class Hangman
 	public String getWord()
 	{
 		return guessWord.getWord();
+	}
+	
+	//create a static method so it can be accessed before the hangman
+	//object is initialized
+	//it needs to be this way because the user needs to see instructions
+	//so they know to select a difficulty and the object is only
+	//instantiated once a level is selected
+	public static String gameRules()
+	{
+		StringBuilder rules = new StringBuilder();
+		rules.append("Game Rules:\n"
+				+ "1. Select a difficulty\n"
+				+ "2. Guess letters one at a time until the word is guessed\n"
+				+ "3. You can guess until the hangman guy is complete");
+		//write up the game rules
+		return rules.toString();
 	}
 	
 	public String toString()

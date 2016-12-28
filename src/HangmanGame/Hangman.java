@@ -2,7 +2,7 @@ package HangmanGame;
 
 import words.*;
 import exceptions.InvalidDifficultyLevelException;
-import exceptions.LetterAlreadyGuessException;
+import exceptions.InvalidGuessException;
 import wordBank.*;
 
 public class Hangman 
@@ -18,7 +18,7 @@ public class Hangman
 		hmperson = new Person();
 	}
 	
-	public boolean guessLetter(char letter) throws LetterAlreadyGuessException
+	public boolean guessLetter(char letter) throws InvalidGuessException
 	{
 		wordBank.removeGuessedLetter(letter);
 		boolean guessed= guessWord.guessLetter(letter);

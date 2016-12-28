@@ -24,15 +24,17 @@ public class WordBank
 	
 	public void removeGuessedLetter(Character guess)
 	{
-		for(int i = 0; i < lettersGuessed.size(); i++)
+		for(int i = 0; i < lettersLeft.size(); i++)
 		{
-			if(lettersGuessed.get(i) == guess)
+			if(lettersLeft.get(i) == guess)
 			{
-				throw new LetterAlreadyGuessException();
+				lettersLeft.remove(guess);
+				lettersGuessed.add(guess);
+				return;
 			}
 		}
-		lettersLeft.remove(guess);
-		lettersGuessed.add(guess);
+		
+		throw new InvalidGuessException();
 	}
 	
 	public String printLettersRemaining()

@@ -95,27 +95,31 @@ public class Person
 	
 	public String getObject()
 	{
-		if(incorrectGuess == 0)
-			return "";
-		else if(incorrectGuess == 1)
-			return object1;
-		else if(incorrectGuess == 2)
-			return object2;
-		else if(incorrectGuess == 3)
-			return object3;
-		else if(incorrectGuess == 4)
-			return object4;
-		else if(incorrectGuess == 5)
-			return object5;
-		else if(incorrectGuess == 6)
-			return object6;
-		else if(incorrectGuess == 7)
-			return object7;
-		else if(incorrectGuess == 8)
-			return object8;
-		else if(incorrectGuess == 9)
-			return object9;
-		else
-			return object10;
+		//you don't need break statements in the switch because it will return and never get there
+		switch (incorrectGuess)
+		{
+			case 0:
+				return "";
+			case 1:
+				return object1;
+			case 2:
+				return object2;
+			case 3:
+				return object3;
+			case 4:
+				return object4;
+			case 5:
+				return object5;
+			case 6:
+				return object6;
+			case 7:
+				return object7;
+			case 8:
+				return object8;
+			case 9:
+				return object9;
+			default:
+				return object10;
+		}
 	}
 }

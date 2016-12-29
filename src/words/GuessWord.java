@@ -48,6 +48,7 @@ public class GuessWord
 	 */
 	public boolean guessLetter(char letter)
 	{
+		letter = Character.toUpperCase(letter);
 		boolean correct=false;
 		for(int i=0;i<wordArray.length;i++)
 		{

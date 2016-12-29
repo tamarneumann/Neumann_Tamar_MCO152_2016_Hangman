@@ -45,10 +45,10 @@ public class GuessWordTests
 	{
 		gword.playerWord("player");
 		assertTrue(gword.guessLetter('p'));
-		assertTrue(gword.guessLetter('l'));
+		assertTrue(gword.guessLetter('L'));
 		assertTrue(gword.guessLetter('a'));
 		assertTrue(gword.guessLetter('y'));
-		assertTrue(gword.guessLetter('e'));
+		assertTrue(gword.guessLetter('E'));
 		assertTrue(gword.guessLetter('r'));
 		assertFalse(gword.guessLetter('z'));
 	}

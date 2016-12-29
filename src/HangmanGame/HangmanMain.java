@@ -88,7 +88,7 @@ public class HangmanMain
 				{
 					System.out.print("Guess the word:");
 					letter=input.nextLine();
-					hangman.guessWord(letter.toUpperCase());
+					hangman.guessWord(letter);
 					break;
 				}
 				else

@@ -21,7 +21,7 @@ public class HangmanTests {
 	public void GuessLetterRetrunsTrueIfCorrect()
 	{
 		hangman.usePlayersWord("random");
-		assertFalse(hangman.guessLetter('s'));
+		assertFalse(hangman.guessLetter('S'));
 		assertTrue(hangman.guessLetter('r'));
 		assertTrue(hangman.guessLetter('a'));
 		assertTrue(hangman.guessLetter('n'));

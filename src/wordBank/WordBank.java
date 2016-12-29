@@ -24,6 +24,7 @@ public class WordBank
 	
 	public void removeGuessedLetter(Character guess)
 	{
+		guess = Character.toUpperCase(guess);
 		for(int i = 0; i < lettersLeft.size(); i++)
 		{
 			if(lettersLeft.get(i) == guess)

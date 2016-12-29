@@ -9,6 +9,9 @@ public class GenerateWord
 	private int numLetters;
 	private String word;
 	
+	public GenerateWord(){
+		
+	}
 	public GenerateWord(String level)
 	{
 		Random num = new Random();
@@ -60,7 +63,11 @@ public class GenerateWord
 		
 		this.numLetters = word.length();
 	}
-	
+
+	public void setWord(String word){
+		this.word=word;
+		this.numLetters = word.length();
+	}
 	public int getNumLetters()
 	{
 		return numLetters;

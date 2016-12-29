@@ -11,11 +11,21 @@ public class Hangman
 	private WordBank wordBank;
 	private Person hmperson;
 	
-	public Hangman(String level) throws InvalidDifficultyLevelException
-	{
-		guessWord = new GuessWord(level);
+	public Hangman(){
 		wordBank = new WordBank();
 		hmperson = new Person();
+		guessWord=new GuessWord();
+		
+	}
+	
+	public void usePlayersWord(String word)
+	{
+		guessWord.playerWord(word);
+	}
+	
+	public void createRandomWord(String level)
+	{
+		guessWord.randomWord(level);
 	}
 	
 	public boolean guessLetter(char letter) throws InvalidGuessException
@@ -31,9 +41,9 @@ public class Hangman
 		return guessed;
 	}
 	
-	public boolean guessWord(String word)
+	public void guessWord(String word)
 	{
-		return guessWord.guessTheWord(word);
+		 guessWord.guessTheWord(word);
 	}
 	
 	public boolean guessed()
@@ -65,9 +75,11 @@ public class Hangman
 	{
 		StringBuilder rules = new StringBuilder();
 		rules.append("Game Rules:\n"
-				+ "1. Select a difficulty\n"
-				+ "2. Guess letters one at a time until the word is guessed\n"
-				+ "3. You can guess until the hangman guy is complete");
+				+ "WELCOME TO HANGMAN. "
+				+ "\n-THE GOAL OF THE GAME IS TO GUESS A WORD, ONE LETTER AT A TIME."
+				+ "\n-EVERY INCORRECT LETTER YOU GUESS ADDS A PART TO THE HANGMAN."
+				+ "\n-AFTER 10 INCORRECT GUESSES, THE HANGMAN IS COMPLETE MAKING IT A GAME OVER."
+				+ "\n-IF AT ANY POINT YOU WOULD LIKE TO GUESS THE ENTIRE WORD, ENTER \"0\". ");
 		//write up the game rules
 		return rules.toString();
 	}

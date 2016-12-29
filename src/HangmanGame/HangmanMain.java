@@ -42,21 +42,22 @@ public class HangmanMain
 				
 					do{
 						input.nextLine();
-					System.out.println("Enter a word:");
+					System.out.print("Enter a word: ");
 					playersWord=input.nextLine();
 					
 					
-					System.out.println("Confirm word:");
+					System.out.print("Confirm word: ");
 					wordConfirm=input.nextLine();	
 					
 					  if(!playersWord.equalsIgnoreCase(wordConfirm))
 						  System.out.println("Words do not match. Try again.");
 					}
-					while(!playersWord.equals(wordConfirm));
+					while(!playersWord.equalsIgnoreCase(wordConfirm));
 					
 					hangman.usePlayersWord(playersWord);
 				}
-				else{
+				else
+				{
 					do
 					{
 						input.nextLine();
@@ -66,7 +67,6 @@ public class HangmanMain
 							hangman.createRandomWord(input.nextLine());
 							flag = true;
 						}
-				
 						catch(InvalidDifficultyLevelException e)
 						{
 							System.out.println(e);
@@ -74,7 +74,7 @@ public class HangmanMain
 						}
 					}
 					while(!flag);
-			    	}
+			    }
 			
 			boolean guess = false; //To see if the player's guess is correct.
 			String letter;
@@ -86,14 +86,15 @@ public class HangmanMain
 				
 				if(letter.equals("0"))
 				{
-					System.out.println("Guess the word:");
+					System.out.print("Guess the word:");
 					letter=input.nextLine();
 					hangman.guessWord(letter.toUpperCase());
 					break;
 				}
-				
-				else{
-					try {
+				else
+				{
+					try 
+					{
 						guess = hangman.guessLetter(letter.toUpperCase().charAt(0));
 					
 						if(!guess)
@@ -110,23 +111,19 @@ public class HangmanMain
 			
 			if(hangman.guessed())
 				System.out.println("Congratulations you guessed "+ hangman.displayWord() + "!");
-			
 			else
 				System.out.println("You lose! The word is " + hangman.getWord());
 			
 			
 			System.out.print("Would you like to play again? (\"Y/N\") ");
-		
-		//reset the flag to false for the try catch statement.
-			flag=false;
 			
 			playAgain = input.nextLine().toUpperCase().charAt(0);
 					
-				while(playAgain!='Y' && playAgain!='N')
-				{	
-					System.out.println("Enter \"Y\" or \"N\":");
-					playAgain = input.nextLine().toUpperCase().charAt(0);
-				}
+			while(playAgain!='Y' && playAgain!='N')
+			{	
+				System.out.println("Enter \"Y\" or \"N\":");
+				playAgain = input.nextLine().toUpperCase().charAt(0);
+			}
 			
 		}while(playAgain == 'Y');
 		

@@ -14,7 +14,7 @@ public class Hangman
 	public Hangman(){
 		wordBank = new WordBank();
 		hmperson = new Person();
-		guessWord=new GuessWord();
+		guessWord = new GuessWord();
 		
 	}
 	

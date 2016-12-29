@@ -20,8 +20,20 @@ public class GuessWord
         wordGuessed=false;		
 	}
 	
-	public void randomWord(String level){
-		word= new GenerateWord(level);
+	public void randomWord(String level)
+	{
+		word.createRandomWord(level);
+		createArray(word);
+	}
+	
+	public void playerWord(String wordX)
+	{
+		word.setWord(wordX.toUpperCase());
+		createArray(word);
+	}
+	
+	private void createArray(GenerateWord word)
+	{
 		wordArray= new char[word.getNumLetters()];
 		for(int i=0;i<wordArray.length;i++)
 		{
@@ -29,15 +41,6 @@ public class GuessWord
 		}
 	}
 	
-	public void playerWord(String wordX){
-		
-		wordArray= new char[wordX.length()];
-		word.setWord(wordX);
-		for(int i=0;i<wordArray.length;i++)
-		{
-			wordArray[i]='_';
-		}
-	}
 	/**
 	 * Method that receives the players guessed letter.
 	 * @param letter The letter the player guessed.
@@ -76,7 +79,7 @@ public class GuessWord
 			}
 			wordGuessed=true;
 	    }
-		}
+	}
 	
 	/**
 	 * Getter Method to get the word that is being used.

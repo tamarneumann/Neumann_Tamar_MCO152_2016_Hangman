@@ -1,6 +1,8 @@
 package unitTests;
 
 import static org.junit.Assert.*;
+
+import org.junit.Before;
 import org.junit.Test;
 import exceptions.*;
 import words.*;
@@ -9,24 +11,30 @@ public class GenerateWordTests
 {
 	private GenerateWord word;
 	
+	@Before
+	public void setUp()
+	{
+		word = new GenerateWord();
+	}
+	
 	@Test
 	public void HangmanEasyWordsNotNull()
 	{
-		word = new GenerateWord("easy");
+		word.createRandomWord("easy");
 		assertNotNull(word);
 	}
 	
 	@Test
 	public void HangmanMediumWordsNotNull()
 	{
-		word=new GenerateWord("medium");
+		word.createRandomWord("medium");
 		assertNotNull(word);
 	}
 	
 	@Test
 	public void HangmanHardWordsNotNull()
 	{
-		word=new GenerateWord("hard");
+		word.createRandomWord("hard");
 		assertNotNull(word);
 	}
 	
@@ -34,7 +42,28 @@ public class GenerateWordTests
 	@Test (expected=InvalidDifficultyLevelException.class)
 	public void InvalidDifficultyInputThrowsException()
 	{
-		word=new GenerateWord("incorrectText");
+		word.createRandomWord("incorrectText");
+	}
+	
+	@Test
+	public void UserWordNotNull()
+	{
+		word.setWord("userWord");
+		assertNotNull(word);
+	}
+	
+	@Test
+	public void UserEnterWordGetsCorrectNumLetters()
+	{
+		word.setWord("example");
+		assertEquals(7, word.getNumLetters());
+	}
+	
+	@Test
+	public void GetWordReturnsCorrectWord()
+	{
+		word.setWord("example");
+		assertEquals("example", word.getWord());
 	}
 }
 	

@@ -1,6 +1,8 @@
 package unitTests;
 
 import static org.junit.Assert.*;
+
+import org.junit.Before;
 import org.junit.Test;
 import words.*;
 
@@ -8,44 +10,62 @@ public class GuessWordTests
 {
 	private GuessWord gword;
 	
-	@Test
-	public void GuessWordHardNotNull()
+	@Before
+	public void SetUp()
 	{
-		gword = new GuessWord("hard");
+		gword = new GuessWord();
+	}
+	
+	@Test
+	public void GuessWordNotNull()
+	{
 		assertNotNull(gword);
 	}
 	
 	@Test
-	public void GuessWordMediumNotNull()
+	public void RandomWordCreatesWord()
 	{
-		gword = new GuessWord("medium");
-		assertNotNull(gword);
-	}
-	
-	@Test
-	public void GuessWordEasyNotNull()
-	{
-		gword = new GuessWord("easy");
-		assertNotNull(gword);
+		gword.randomWord("medium");
+		assertNotNull(gword.getWord());
 	}
 	
 	
 	@Test
-	public void GuessLetterFindsMatchingLetterToUsersInput()
+	public void GuessLetterFindsMatchingLetterToUsersInputFromRandomWord()
 	{
-		gword = new GuessWord("easy");
+		gword.randomWord("easy");
 		if (gword.getWord().indexOf("a") != -1) 
 			assertTrue(gword.guessLetter('a'));
 		else
 			assertFalse(gword.guessLetter('a'));
 	}
 	
+	@Test
+	public void GuessLetterFindsMatchingLetterToUsersInputFromUserWord()
+	{
+		gword.playerWord("player");
+		assertTrue(gword.guessLetter('p'));
+		assertTrue(gword.guessLetter('l'));
+		assertTrue(gword.guessLetter('a'));
+		assertTrue(gword.guessLetter('y'));
+		assertTrue(gword.guessLetter('e'));
+		assertTrue(gword.guessLetter('r'));
+		assertFalse(gword.guessLetter('z'));
+	}
 	
 	@Test
 	public void IncorrectGuessTheWordIsFalse()
 	{
-		gword=new GuessWord("easy");
+		gword.randomWord("easy");
 		assertFalse("wrong word".equals(gword));
+	}
+	
+	@Test
+	public void GuessCorrectWord()
+	{
+		gword.playerWord("hello");
+		gword.guessTheWord("hello");
+		assertTrue(gword.guessed());
 	}
 	
 }

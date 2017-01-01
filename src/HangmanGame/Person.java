@@ -2,7 +2,9 @@ package HangmanGame;
 
 public class Person 
 {
-	private int incorrectGuess;
+	private int incorrectGuess; //Player's amount of incorrect guesses.
+	
+	//Each object is another part of the hangman. 
 	private String object1;
 	private String object2;
 	private String object3;
@@ -83,15 +85,23 @@ public class Person
 
 	}
 	
+	/**
+	 * Method to get the player's number of incorrect guesses.
+	 * @return the number of incorrect guesses.
+	 */
 	public int getIncorrectGuess()
 	{
 		return incorrectGuess;
 	}
 	
+	/**
+	 * Method to increase the player's number of incorrect guesses.
+	 */
 	public void increaseGuess()
 	{
 		incorrectGuess++;
 	}
+	
 	
 	public String getObject()
 	{

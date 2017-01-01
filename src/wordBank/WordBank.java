@@ -22,11 +22,17 @@ public class WordBank
 		}
 	}
 	
+	/**
+	 * Method to remove the letter the player guessed from the array of unguessed letters.
+	 * @param guess the players guessed letter.
+	 */
 	public void removeGuessedLetter(Character guess)
 	{
 		guess = Character.toUpperCase(guess);
+		
 		for(int i = 0; i < lettersLeft.size(); i++)
 		{
+			//Remove the letter from the word bank if it is found in the array of unused letters.
 			if(lettersLeft.get(i) == guess)
 			{
 				lettersLeft.remove(guess);
@@ -35,6 +41,7 @@ public class WordBank
 			}
 		}
 		
+		//If the letter was not in the array of unused letters.
 		throw new InvalidGuessException();
 	}
 	

@@ -13,11 +13,13 @@ public class HangmanMain
 	public static void main(String[] args)
 	{
 		Scanner input = new Scanner(System.in);
-		final int MAX_TURNS = 10;
-		char playAgain;
-		int gameOption;
+		final int MAX_TURNS = 10;  //The player only has 10 guesses.
+		char playAgain;            //The player's response if he wants to play another game.
+		boolean flag = false;      //To control the try catch loop.
+		int gameOption;            //The player's response if he wants to play against a friend or the computer.
+		String letter;	    	   //The player's guess.
 		Hangman hangman = new Hangman();//a hangman object.
-		boolean flag = false;  //to control the try catch loop.
+		
 		
 		//display the rules of the game.
 		System.out.println(Hangman.gameRules());
@@ -38,7 +40,8 @@ public class HangmanMain
 			
 				if(gameOption==1)
 				{
-					String playersWord, wordConfirm;
+					String playersWord,  //Player's word for the game.
+					        wordConfirm; //Player must confirm the word.
 				
 					do{
 						input.nextLine();
@@ -54,16 +57,21 @@ public class HangmanMain
 					}
 					while(!playersWord.equalsIgnoreCase(wordConfirm));
 					
+					//set up the game with the player's word.
 					hangman.usePlayersWord(playersWord);
 				}
+				
+				//if the user wants the computer to pick a word for him.
 				else
 				{
 					do
 					{
-						input.nextLine();
-						System.out.print("Please select a difficulty, easy, medium or hard: ");
+						input.nextLine(); //consume line.
+						
+						System.out.print("Please select a difficulty: easy, medium or hard: ");
 						try
 						{
+							//create a new hangman game based on the player's choice of level.
 							hangman.createRandomWord(input.nextLine());
 							flag = true;
 						}
@@ -77,13 +85,14 @@ public class HangmanMain
 			    }
 			
 			boolean guess = false; //To see if the player's guess is correct.
-			String letter;
+		
 			
 			do
 			{
 				System.out.print("\n" + hangman + "\n\nGuess a letter: ");
 				letter=input.nextLine();
 				
+				//If the player wants to guess the entire word.
 				if(letter.equals("0"))
 				{
 					System.out.print("Guess the word:");
@@ -107,6 +116,7 @@ public class HangmanMain
 				}
 				
 			}
+			//continue to give the user guesses until he reached the max amount of turns.
 			while(!hangman.guessed() && hangman.getIncorrectGuess() < MAX_TURNS);
 			
 			if(hangman.guessed())

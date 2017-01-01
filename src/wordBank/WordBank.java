@@ -45,6 +45,20 @@ public class WordBank
 		throw new InvalidGuessException();
 	}
 	
+	//return a copy of the letters left.
+	public ArrayList<Character> getLettersLeft(){
+		ArrayList<Character> copy=new ArrayList<Character>();
+		 copy.addAll(lettersLeft);
+		 return copy;
+	}
+	
+	//return a copy of the letters guessed.
+	public ArrayList<Character> getLettersGuessed(){
+		ArrayList<Character> copy=new ArrayList<Character>();
+		copy.addAll(lettersGuessed);
+		return copy;
+	}
+	
 	public String printLettersRemaining()
 	{
 		StringBuilder bank = new StringBuilder();

@@ -122,7 +122,10 @@ public class HangmanMain
 			if(hangman.guessed())
 				System.out.println("Congratulations you guessed "+ hangman.displayWord() + "!");
 			else
+			{
+				System.out.println(hangman.toString());
 				System.out.println("You lose! The word is " + hangman.getWord());
+			}
 			
 			
 			System.out.print("Would you like to play again? (\"Y/N\") ");

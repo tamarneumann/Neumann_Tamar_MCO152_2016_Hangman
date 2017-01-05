@@ -85,6 +85,11 @@ public class Person
 
 	}
 	
+	public void setIncorrectGuess(int incorrectGuess)
+	{
+		this.incorrectGuess=incorrectGuess;
+	}
+	
 	/**
 	 * Method to get the player's number of incorrect guesses.
 	 * @return the number of incorrect guesses.

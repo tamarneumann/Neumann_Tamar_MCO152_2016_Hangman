@@ -17,6 +17,7 @@ public class GuessWord
 	public GuessWord()
 	{
 		word=new GenerateWord();
+		wordGuessed=false;	
        	
 	}
 	
@@ -24,14 +25,19 @@ public class GuessWord
 	{
 		word.createRandomWord(level);
 		createArray(word);
-		wordGuessed=false;	
+		
 	}
 	
 	public void playerWord(String wordX)
 	{
 		word.setWord(wordX.toUpperCase());
 		createArray(word);
-		wordGuessed=false;	
+			
+	}
+	
+	public void setWordGuessed(boolean wordGuessed)
+	{
+		this.wordGuessed=wordGuessed;
 	}
 	
 	private void createArray(GenerateWord word)

@@ -80,6 +80,7 @@ public class GuessWord
 	 */
 	public void guessTheWord(String otherWord)
 	{
+	  otherWord=otherWord.toUpperCase();
 		if(word.getWord().equalsIgnoreCase(otherWord))
 		{		
 			for(int i=0;i<wordArray.length;i++)

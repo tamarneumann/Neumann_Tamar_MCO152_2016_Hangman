@@ -119,13 +119,12 @@ public class HangmanMain
 			//continue to give the user guesses until he reached the max amount of turns.
 			while(!hangman.guessed() && hangman.getIncorrectGuess() < MAX_TURNS);
 			
+			System.out.println(hangman.toString());
+			
 			if(hangman.guessed())
 				System.out.println("Congratulations you guessed "+ hangman.displayWord() + "!");
-			else
-			{
-				System.out.println(hangman.toString());
+			else				
 				System.out.println("You lose! The word is " + hangman.getWord());
-			}
 			
 			
 			System.out.print("Would you like to play again? (\"Y/N\") ");

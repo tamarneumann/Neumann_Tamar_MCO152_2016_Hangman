@@ -134,7 +134,8 @@ public class HangmanMain
 				System.out.println("Enter \"Y\" or \"N\":");
 				playAgain = input.nextLine().toUpperCase().charAt(0);
 			}
-			
+			if(playAgain=='Y')
+				hangman.resetGame();
 		}while(playAgain == 'Y');
 		
 		System.out.println("Thank you for playing!");

@@ -103,6 +103,11 @@ public class Hangman
 		return guessWord.getWord();
 	}
 	
+	public void resetGame()
+	{
+		wordBank.resetWordBank();
+		guessWord.setWordGuessed(false);
+	}
 	//create a static method so it can be accessed before the hangman
 	//object is initialized
 	//it needs to be this way because the user needs to see instructions

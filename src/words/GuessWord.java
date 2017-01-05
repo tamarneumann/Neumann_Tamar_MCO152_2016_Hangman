@@ -40,6 +40,11 @@ public class GuessWord
 		this.wordGuessed=wordGuessed;
 	}
 	
+	public void setLettersGuessed(int x)
+	{
+		guessedLetters = x;
+	}
+	
 	private void createArray(GenerateWord word)
 	{
 		wordArray= new char[word.getNumLetters()];
@@ -80,6 +85,7 @@ public class GuessWord
 	 */
 	public void guessTheWord(String otherWord)
 	{
+		otherWord=otherWord.toUpperCase();
 		if(word.getWord().equalsIgnoreCase(otherWord))
 		{		
 			for(int i=0;i<wordArray.length;i++)

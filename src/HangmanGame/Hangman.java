@@ -107,6 +107,7 @@ public class Hangman
 	{
 		wordBank.resetWordBank();
 		guessWord.setWordGuessed(false);
+		guessWord.setLettersGuessed(0);
 	}
 	//create a static method so it can be accessed before the hangman
 	//object is initialized

@@ -38,13 +38,14 @@ public class HangmanMain
 					gameOption=input.nextInt();
 				}
 			
+				input.nextLine();
 				if(gameOption==1)
 				{
 					String playersWord,  //Player's word for the game.
 					        wordConfirm; //Player must confirm the word.
 				
 					do{
-						input.nextLine();
+					
 					System.out.print("Enter a word: ");
 					playersWord=input.nextLine();
 					
@@ -66,7 +67,6 @@ public class HangmanMain
 				{
 					do
 					{
-						input.nextLine(); //consume line.
 						
 						System.out.print("Please select a difficulty: easy, medium or hard: ");
 						try
@@ -122,7 +122,7 @@ public class HangmanMain
 			System.out.println(hangman.toString());
 			
 			if(hangman.guessed())
-				System.out.println("Congratulations you guessed "+ hangman.displayWord() + "!");
+				System.out.println("Congratulations you guessed the word!");
 			else				
 				System.out.println("You lose! The word is " + hangman.getWord());
 			

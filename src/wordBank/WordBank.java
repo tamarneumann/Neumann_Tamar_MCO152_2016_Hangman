@@ -15,6 +15,19 @@ public class WordBank
 		lettersLeft = new ArrayList<Character>();
 		lettersGuessed = new ArrayList<Character>();
 		
+		createWordBank();
+	}
+	
+	public void resetWordBank()
+	{
+		lettersLeft.clear();
+		lettersGuessed.clear();
+		
+		createWordBank();
+	}
+	
+	private void createWordBank()
+	{
 		//fill the array list of all letters
 		for(char alphabet = 'A'; alphabet <= 'Z';alphabet++) 
 		{

@@ -20,46 +20,26 @@ public class GenerateWord
 		//then search the enumerated type for the word corresponding to that number
 		if(level.equalsIgnoreCase("easy"))
 		{
-			EasyWords w[] = EasyWords.values();		//generate a random number from 1 through the number of words of that level
-			id = num.nextInt((w.length)) + 1;		//go through the words of that level and if you find the id of the word that 
-			for(int i = 0; i < w.length; i++)		//matches the random number set that word to be the word for the game
-			{
-				if(i == id)
-				{
-					this.word = w[i].toString();
-					break;
-				}
-			}
+			EasyWords w[] = EasyWords.values();		//generate a random number from 1 through the number of words of that level		
+			id = num.nextInt((w.length)) + 1;		
+			this.word = w[id].toString();
 		}
 		else if(level.equalsIgnoreCase("medium"))
 		{
 			MediumWords w[] = MediumWords.values();
-			id = num.nextInt((w.length)) + 1;
-			for(int i = 0; i < w.length; i++)
-			{
-		        if(i == id)
-		        {
-		            this.word = w[i].toString();
-		            break;
-		        }
-		    }
+			id = num.nextInt((w.length)) + 1;		
+			this.word = w[id].toString();
 		}
 		else if (level.equalsIgnoreCase("hard"))
 		{
 			HardWords w[] = HardWords.values();
-			id = num.nextInt((w.length)) + 1;
-			for(int i = 0; i < w.length; i++)
-			{
-		        if(i == id)
-		        {
-		            this.word = w[i].toString();
-		            break;
-		        }
-		    }
+			id = num.nextInt((w.length)) + 1;		
+			this.word = w[id].toString();
 		}
 		else
 			throw new InvalidDifficultyLevelException();
 		
+			
 		this.numLetters = word.length();
 	}
 

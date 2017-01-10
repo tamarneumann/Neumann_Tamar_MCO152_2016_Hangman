@@ -21,19 +21,19 @@ public class GenerateWord
 		if(level.equalsIgnoreCase("easy"))
 		{
 			EasyWords w[] = EasyWords.values();		//generate a random number from 1 through the number of words of that level		
-			id = num.nextInt((w.length)) + 1;		
+			id = num.nextInt((w.length));		
 			this.word = w[id].toString();
 		}
 		else if(level.equalsIgnoreCase("medium"))
 		{
 			MediumWords w[] = MediumWords.values();
-			id = num.nextInt((w.length)) + 1;		
+			id = num.nextInt((w.length));		
 			this.word = w[id].toString();
 		}
 		else if (level.equalsIgnoreCase("hard"))
 		{
 			HardWords w[] = HardWords.values();
-			id = num.nextInt((w.length)) + 1;		
+			id = num.nextInt((w.length));		
 			this.word = w[id].toString();
 		}
 		else

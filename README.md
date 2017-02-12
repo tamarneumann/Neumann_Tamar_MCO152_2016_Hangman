@@ -1,4 +1,2 @@
-# Klein_G-mco152-2016F_hangman
-Gittie Klein and Tamar Neuman
-We plan to make a hangman game as our project. 
-The user will be able to select how many letters the word should be and possibly a category for the word.
+This is a hangman term project I worked on with Gittie Klein.
+The user has an option to play against a friend, or the computer. See PDF file for slide presentation.
